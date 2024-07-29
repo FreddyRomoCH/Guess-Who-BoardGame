@@ -82,5 +82,5 @@ export function useQuestions() {
       }
     }, [game])
 
-    return { game, allQuestions, handlerQuestionSelected, restartGame }
+    return { game, setGame, allQuestions, handlerQuestionSelected, restartGame }
 }

@@ -7,7 +7,7 @@ export function Board() {
 
   return (
     <>
-      <section className="grid grid-cols-board justify-items-center text-cente w-[90%] gap-2">
+      <section className="grid grid-cols-board-md xl:grid-cols-board justify-items-center text-cente w-full xl:w-[90%] gap-1 xl:gap-2">
         {game.isWinner ? (
           <Winner onClick={restartGame} />
         ) : (

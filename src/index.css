@@ -5,11 +5,9 @@
 
 html {
     font-family: 'IrishGrover', system-ui, sans-serif;
+    background: linear-gradient(180deg, #6C61F5 0%, #1C115E 100%)
 }
 
-body {
-    background-color: #E4E4E4;
-}
 @font-face {
     font-family: 'IrishGrover';
     src: url("/fonts/Irish_Grover/IrishGrover-Regular.ttf") format("truetype");

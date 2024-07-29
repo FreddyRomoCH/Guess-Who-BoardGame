@@ -5,12 +5,12 @@ import { Tries } from "./components/Tries.jsx";
 
 function App() {
   return (
-    <main className="relative flex flex-row justify-center items-center gap-6 m-auto p-8 max-w-7xl h-screen w-screen bg-gradient-to-b from-[#6C61F5] to-[#1C115E]">
-      <section className="flex flex-col flex-grow justify-center items-center gap-4">
+    <main className="relative flex flex-col md:flex-row justify-center items-center gap-6 m-auto p-8 max-w-7xl 1xl:h-screen  overflow-auto 1xl:overflow-hidden">
+      <section className="flex flex-col flex-grow justify-center items-center gap-4 w-full md:w-auto">
         <Header />
         <Board />
       </section>
-      <section className="flex flex-col justify-between items-center w-[410px]">
+      <section className="flex flex-col justify-between items-center w-60 md:w-80 xl:w-[410px]">
         <Tries />
         <Questions />
       </section>
