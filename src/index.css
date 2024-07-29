@@ -15,3 +15,16 @@ html {
     font-style: normal;
     font-display: swap;
 }
+
+@keyframes rotateX {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(360deg);
+    }
+}
+
+.rotate-card {
+    animation: rotateX 1.3s 1 both ease-in-out;
+}

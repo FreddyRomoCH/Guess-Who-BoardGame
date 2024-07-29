@@ -11,7 +11,9 @@ export function Card({ name, image, onClick, found, isToFind }) {
 
   return (
     <div
-      className={`relative bg-white border-[#B12831] bg-gradient-to-b shadow-lg box-border ${isToFindClass}`}
+      className={`relative border-[#B12831] bg-gradient-to-b shadow-lg box-border ${isToFindClass} ${
+        found ? "rotate-card" : ""
+      }`}
       onClick={onClick}
     >
       <div className="bg-white">
