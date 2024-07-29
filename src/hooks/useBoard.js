@@ -1,14 +1,36 @@
-import { useEffect, useState } from 'react'
-import { characters } from '../services/characters'
+import { useContext } from 'react'
+import { GameContext } from '../context/gameContext'
 
 export function useBoard() {
-    const [newBoard, setNewBoard] = useState([])
+    const { game, setGame, randomIndex, restartGame } = useContext(GameContext)
 
-    useEffect(() => {
-        const newGame = characters.map((character) => character)
+    const checkIfWinner = ({ id }) => {
+        if (id === game.characterToFind) {
+          setGame((prevState) => {
+            return {
+              ...prevState,
+              isWinner: true,
+            };
+          });
+        }else{
+            setGame((prevState) => {
+              return {
+                ...prevState,
+                oportunities: prevState.oportunities - 1,
+                isLooser: (prevState.oportunities - 1) === 0 ? true : false,
+                board: prevState.board.map((character) => {
+                  if (character.id === id) {
+                    return {
+                      ...character,
+                      found: true,
+                    };
+                  }
+                  return character;
+                })
+              }
+            })
+        }
+      };
 
-        setNewBoard(newGame)
-    }, [setNewBoard])
-
-    return newBoard
+    return { game, randomIndex, checkIfWinner, restartGame }
 }

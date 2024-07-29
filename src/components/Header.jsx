@@ -1,10 +1,10 @@
-import { Debugger } from "../components/Debugger.jsx";
+// import { Debugger } from "../components/Debugger.jsx";
 import { CharacterToFind } from "../components/CharacterToFind.jsx";
 
 export function Header() {
   return (
     <header className="relative flex flex-row items-center justify-center gap-6">
-      <Debugger />
+      {/* <Debugger /> */}
       <picture>
         <img
           className="w-52"

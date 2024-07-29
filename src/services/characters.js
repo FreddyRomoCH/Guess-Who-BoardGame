@@ -13,7 +13,6 @@ export const characters = [
         hat: false,
         mustache: true,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -27,12 +26,11 @@ export const characters = [
         blackHair: false,
         blondHair: false,
         gingerHair: true,
-        whiteHAir: false,
+        whiteHair: false,
         glasses: false,
         hat: false,
         mustache: true,
         beard: false,
-        smile: false,
         brownEyes: false,
         blueEyes: true,
         found: false
@@ -46,12 +44,11 @@ export const characters = [
         blackHair: false,
         blondHair: false,
         gingerHair: false,
-        whiteHAir: true,
+        whiteHair: true,
         glasses: false,
         hat: false,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: false,
         blueEyes: true,
         found: false
@@ -65,12 +62,11 @@ export const characters = [
         blackHair: true,
         blondHair: false,
         gingerHair: false,
-        whiteHAir: false,
+        whiteHair: false,
         glasses: false,
         hat: false,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -89,7 +85,6 @@ export const characters = [
         hat: true,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -108,7 +103,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: true,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -127,7 +121,6 @@ export const characters = [
         hat: false,
         mustache: true,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -140,13 +133,12 @@ export const characters = [
         female: true,
         blackHair: false,
         blondHair: false,
-        gingerHair: false,
+        gingerHair: true,
         whiteHair: false,
         glasses: true,
         hat: true,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -165,7 +157,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: true,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -177,14 +168,13 @@ export const characters = [
         male: true,
         female: false,
         blackHair: false,
-        blondHair: false,
+        blondHair: true,
         gingerHair: false,
         whiteHair: false,
         glasses: false,
         hat: true,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -203,7 +193,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -222,7 +211,6 @@ export const characters = [
         hat: true,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -241,7 +229,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: false,
-        smile: false,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -260,7 +247,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -271,7 +257,7 @@ export const characters = [
         image: "images/characters/maria.png",
         male: false,
         female: true,
-        blackHair: false,
+        blackHair: true,
         blondHair: false,
         gingerHair: false,
         whiteHair: false,
@@ -279,7 +265,6 @@ export const characters = [
         hat: true,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -298,7 +283,6 @@ export const characters = [
         eyeColor: "brown",
         mustache: true,
         beard: false,
-        smile: false,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -317,7 +301,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -336,7 +319,6 @@ export const characters = [
         eyeColor: "blue",
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: false,
         blueEyes: true,
         found: false
@@ -347,7 +329,7 @@ export const characters = [
         image: "images/characters/phillip.png",
         male: true,
         female: false,
-        blackHair: false,
+        blackHair: true,
         blondHair: false,
         gingerHair: false,
         whiteHair: false,
@@ -355,7 +337,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: true,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -374,9 +355,8 @@ export const characters = [
         hat: false,
         mustache: true,
         beard: true,
-        smile: false,
-        brownEyes: false,
-        blueEyes: true,
+        brownEyes: true,
+        blueEyes: false,
         found: false
     },
     {
@@ -393,7 +373,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: false,
         blueEyes: true,
         found: false
@@ -412,7 +391,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: false,
-        smile: false,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -431,7 +409,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: true,
         blueEyes: false,
         found: false
@@ -450,7 +427,6 @@ export const characters = [
         hat: false,
         mustache: false,
         beard: false,
-        smile: true,
         brownEyes: false,
         blueEyes: true,
         found: false

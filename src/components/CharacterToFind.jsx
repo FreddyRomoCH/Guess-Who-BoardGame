@@ -1,9 +1,8 @@
 import { Card } from "../components/Card.jsx";
-import { useCharacters } from "../hooks/useCharacters.js";
+import { useBoard } from "../hooks/useBoard.js";
 
 export function CharacterToFind() {
-  const { game } = useCharacters();
-  console.log("Character To find Render");
+  const { game } = useBoard();
 
   return (
     <>
@@ -12,7 +11,7 @@ export function CharacterToFind() {
 
         return (
           id === game.characterToFind && (
-            <Card key={id} name={name} image={image} />
+            <Card key={id} name={name} image={image} isToFind={true} />
           )
         );
       })}

@@ -6,24 +6,38 @@ export const GameContext = createContext();
 
 //Provide
 export function GameProvider({ children }) {
-  const shuffledCharacters = characters.sort(() => Math.random() - 0.5);
-  const randomIndex = Math.floor(Math.random() * characters.length);
+  const randomNumber = Math.floor(Math.random() * (characters.length + 1));
+  let randomIndex = randomNumber;
+  if (randomNumber === 0) {
+    randomIndex = 1;
+  }
 
   const [game, setGame] = useState({
     characterToFind: randomIndex,
     isWinner: false,
     isLooser: false,
     oportunities: 5,
-    board: shuffledCharacters,
+    board: characters,
   });
+
+  const restartGame = () => {
+    setGame((prevState) => ({
+      ...prevState,
+      characterToFind: randomIndex,
+      isWinner: false,
+      isLooser: false,
+      oportunities: 5,
+      board: characters,
+    }));
+  };
 
   return (
     <GameContext.Provider
       value={{
         game,
         setGame,
-        shuffledCharacters,
         randomIndex,
+        restartGame,
       }}
     >
       {children}

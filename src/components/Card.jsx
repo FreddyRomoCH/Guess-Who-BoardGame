@@ -1,16 +1,35 @@
-export function Card({ name, image, onClick, found }) {
+import { useBoard } from "../hooks/useBoard";
+
+export function Card({ name, image, onClick, found, isToFind }) {
+  const { game } = useBoard();
+
+  const isToFindClass = isToFind
+    ? "w-[124px] border-[10px]"
+    : "w-[100px] border-[5px] transform hover:scale-105 transition-transform ease-in-out cursor-pointer";
+
+  const cardNotFound = "images/question.png";
+
   return (
     <div
-      className="relative bg-indigo-800 w-20 cursor-pointer h-[150px] p-1"
+      className={`relative bg-white border-[#B12831] bg-gradient-to-b shadow-lg box-border ${isToFindClass}`}
       onClick={onClick}
     >
-      {found && (
-        <div className="bg-red-900/90 w-full h-full absolute top-0 left-0 z-10"></div>
-      )}
-      <img src={image} alt={name} />
-      <h2 className="text-base font-light text-indigo-100 text-center">
-        {name}
-      </h2>
+      <div className="bg-white">
+        <picture>
+          {!isToFind ? (
+            <img
+              src={!found ? image : cardNotFound}
+              alt={name}
+              className="w-[90px] h-[130px] object-cover"
+            />
+          ) : (
+            <img
+              src={game.isWinner || game.isLooser ? image : cardNotFound}
+              alt={name}
+            />
+          )}
+        </picture>
+      </div>
     </div>
   );
 }
