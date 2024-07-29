@@ -1,8 +1,12 @@
-# React + Vite
+# Guess Who | Gameboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/FreddyRomoCH/Guess-Who-BoardGame)
 
-Currently, two official plugins are available:
+![just-the-basics](https://github.com/FreddyRomoCH/metallica/blob/main/public/images/screenshots/guess-who-01.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project
+
+Guess Who game for Portfolio purposes. This web page was implemented using React, Javascript and TailWindCSS (Responsive).
+
+![just-the-basics](https://github.com/FreddyRomoCH/metallica/blob/main/public/images/screenshots/guess-who-02.png)
+![just-the-basics](https://github.com/FreddyRomoCH/metallica/blob/main/public/images/screenshots/guess-who-03.png)
