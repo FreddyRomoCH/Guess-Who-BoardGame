@@ -24,7 +24,7 @@ export function Tries() {
         oportunities: difficulty,
       };
     });
-  }, [difficulty]);
+  }, [difficulty, setDifficulty]);
 
   return (
     <div className="bg-black/50 text-white text-center rounded-lg p-6 mb-10">

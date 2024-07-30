@@ -10,7 +10,7 @@ function App() {
         <Header />
         <Board />
       </section>
-      <section className="flex flex-col justify-between items-center w-60 md:w-80 xl:w-[410px]">
+      <section className="flex flex-col justify-between items-center md:w-80 xl:w-[410px]">
         <Tries />
         <Questions />
       </section>

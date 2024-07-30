@@ -4,8 +4,8 @@ export function Card({ name, image, onClick, found, isToFind }) {
   const { game } = useBoard();
 
   const isToFindClass = isToFind
-    ? "w-[124px] border-[10px]"
-    : "w-[100px] border-[5px] transform hover:scale-105 transition-transform ease-in-out cursor-pointer";
+    ? "w-20 md:w-[124px] border-2 md:border-[10px]"
+    : "border-[5px] transform hover:scale-105 transition-transform ease-in-out cursor-pointer";
 
   const cardNotFound = "images/question.png";
 
@@ -22,7 +22,7 @@ export function Card({ name, image, onClick, found, isToFind }) {
             <img
               src={!found ? image : cardNotFound}
               alt={name}
-              className="w-[90px] h-[130px] object-cover"
+              className="w-[60px] md:w-[90px] h-[80px] md:h-[130px] object-cover"
             />
           ) : (
             <img
