@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { characters } from "../services/characters";
+import { questions } from "../services/questions";
 
 //Create
 export const GameContext = createContext();
@@ -15,9 +16,16 @@ export function GameProvider({ children }) {
   const [game, setGame] = useState({
     characterToFind: randomIndex,
     isWinner: false,
-    isLooser: false,
-    oportunities: 5,
+    isLoser: false,
+    opportunities: 5,
+    difficulty: 5,
     board: characters,
+    isPlaying: false,
+    allQuestions: questions,
+    currentQuestion: null,
+    currentQuestionKeyWord: null,
+    isCurrentAnswerTrue: false,
+    currentQuestionOppositeWord: [],
   });
 
   const restartGame = () => {
@@ -25,9 +33,16 @@ export function GameProvider({ children }) {
       ...prevState,
       characterToFind: randomIndex,
       isWinner: false,
-      isLooser: false,
-      oportunities: 5,
+      isLoser: false,
+      opportunities: game.difficulty === 7 ? 7 : game.difficulty === 5 ? 5 : 3,
+      difficulty: prevState.difficulty,
       board: characters,
+      isPlaying: false,
+      allQuestions: questions,
+      currentQuestion: null,
+      currentQuestionKeyWord: null,
+      isCurrentAnswerTrue: false,
+      currentQuestionOppositeWord: [],
     }));
   };
 

@@ -1,86 +1,64 @@
-import { useState, useEffect } from "react";
-import { useContext } from "react"
+import { useEffect, useContext } from "react";
 import { GameContext } from "../context/gameContext.jsx"
-import { questions } from "../services/questions.js"
 
 export function useQuestions() {
     const { game, setGame, restartGame } = useContext(GameContext)
-    const [allQuestions, setAllQuestions] = useState([]);
-    const [currentQuestion, setCurrentQuestion] = useState(null);
 
     useEffect(() => {
-      setAllQuestions(questions);
-    }, [setAllQuestions]);
-  
-    useEffect(() => {
-      if (currentQuestion !== null) {
-        setAllQuestions((prevQuestions) =>
-          prevQuestions.filter(({ id }) => id !== currentQuestion)
-        );
+      if (game.currentQuestion !== null && game.opportunities > 1) {
+        setGame(prevState => ({
+            ...prevState,
+            allQuestions: game.allQuestions.filter(({ id, keyWord }) => {
+              if (id === game.currentQuestion) return false;
+              if (!game.currentQuestionKeyWord.includes("Hair") && game.currentQuestionOppositeWord.includes(keyWord)) return false; 
+              if ( game.currentQuestionKeyWord.includes("Hair") && keyWord.includes("Hair")) return !game.isCurrentAnswerTrue;
+              return true;
+            })
+        }))
       }
-    }, [currentQuestion]);
 
+      const isLastTwoLeft = game.board.filter((character) => character.found === false).length === 2;
 
-    const checkingTarget = ({ keyWord }) => {
-      return game.board.some(
-        (target) => target.id === game.characterToFind && target[keyWord] === true
-      );
-    };
+      if (game.opportunities === 1 || isLastTwoLeft) {
+        setGame(prevState => {
+          return {
+            ...prevState,
+            allQuestions: [],
+            opportunities: 1,
+          }
+        })
+      }
+
+    }, [game.currentQuestion]);
     
-    const handlerQuestionSelected = ({ id, keyWord }) => {
-      setCurrentQuestion(id);
-  
-      const isQuestionCorrect = checkingTarget({ keyWord });
+    const handlerQuestionSelected = ({ id, keyWord, oppositeKeyWord }) => {
+      const isQuestionCorrect = game.board.some((target) => target.id === game.characterToFind && target[keyWord] === true)
 
-      let filteredBoard
-  
-      if (!isQuestionCorrect) {
-        // Cards with keyWord equal to the selected one will be marked as found (removed from the board)
-        filteredBoard = game.board.map((character) => {
-          if (character[keyWord] === true) {
-            return {
-              ...character,
-              found: true,
-            };
-          }
-          return character;
-        });
-      } else {
-        filteredBoard = game.board.map((character) => {
-          if (character[keyWord] !== true) {
-            return {
-              ...character,
-              found: true,
-            };
-          }
-          return character;
-        });
-      }
+      const filteredBoard = game.board.map((character) => {
+        if (isQuestionCorrect) {
+          return character[keyWord] !== true ? { ...character, found: true } : character;
+        }else{
+          return character[keyWord] === true ? { ...character, found: true } : character;
+        }
+      })
 
-      const isOneLeft =
-        filteredBoard.filter((character) => character.found === false)
-          .length === 1;
+      const isOneLeft = filteredBoard.filter((character) => character.found === false).length === 1;
 
       setGame((prevState) => {
         return {
           ...prevState,
-          oportunities: prevState.oportunities - 1,
-          isLooser: (prevState.oportunities - 1) === 0 ? true : false,
+          currentQuestion: id,
+          currentQuestionKeyWord: keyWord,
+          currentQuestionOppositeWord: oppositeKeyWord,
+          isPlaying: true,
+          opportunities: prevState.opportunities - 1,
+          isLoser: (prevState.opportunities - 1) === 0 ? true : false,
           board: filteredBoard,
           isWinner: isOneLeft,
+          isCurrentAnswerTrue: isQuestionCorrect
         };
       });
-
-      return;
-
     };
 
-    useEffect(() => {
-      if (game.isWinner || game.isLooser) {
-        setCurrentQuestion(null);
-        setAllQuestions(questions);
-      }
-    }, [game])
-
-    return { game, setGame, allQuestions, handlerQuestionSelected, restartGame }
+    return { game, setGame, handlerQuestionSelected, restartGame }
 }

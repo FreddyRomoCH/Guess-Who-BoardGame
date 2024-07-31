@@ -1,4 +1,4 @@
-export function SinqleQuestion({ question, id, onClick }) {
+export function SinqleQuestion({ question, id, onClick, answer }) {
   return (
     <li
       key={id}
@@ -6,6 +6,7 @@ export function SinqleQuestion({ question, id, onClick }) {
       onClick={onClick}
     >
       <p className="text-xs lg:text-base font-thin">{question}</p>
+      <p className="hidden">{answer ? "It's True" : "False!!"}</p>
     </li>
   );
 }

@@ -1,6 +1,6 @@
 import { useBoard } from "../hooks/useBoard";
 
-export function Looser({ onClick }) {
+export function Loser({ onClick }) {
   const { game } = useBoard();
 
   const mainCard = game.board.filter((el) => {
@@ -8,7 +8,7 @@ export function Looser({ onClick }) {
   });
 
   return (
-    <div className="absolute grid justify-center items-center top-0 left-0 m-auto w-full h-full  bg-black/85">
+    <div className="absolute grid justify-center items-center top-0 left-0 m-auto w-full h-full bg-black/85 z-30">
       <div className="flex flex-col justify-center items-center bg-[#6C61F5] p-8 rounded gap-4">
         <h1 className="text-4xl text-center text-indigo-200">
           You Lost! Try Again!
