@@ -32,6 +32,15 @@ export function useQuestions() {
     }, [game.currentQuestion]);
     
     const handlerQuestionSelected = ({ id, keyWord, oppositeKeyWord }) => {
+
+      //Scroll to the top of the page when mobile
+      if (window.innerWidth < 768) {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+
       const isQuestionCorrect = game.board.some((target) => target.id === game.characterToFind && target[keyWord] === true)
 
       const filteredBoard = game.board.map((character) => {
