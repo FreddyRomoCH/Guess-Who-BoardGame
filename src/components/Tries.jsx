@@ -35,11 +35,14 @@ export function Tries() {
       <h2 className="text-xl lg:text-3xl font-light tracking-wide mb-3">
         Ask a question to know the hidden character
       </h2>
-      <p
-        className={`font-thin text-base mb-2 lg:text-2xl ${oneOpportunityClass}`}
-      >
-        Questions: {game.opportunities}
-      </p>
+      {game.allQuestions.length > 0 && (
+        <p
+          className={`font-thin text-base mb-2 lg:text-2xl ${oneOpportunityClass}`}
+        >
+          Questions: {game.opportunities}
+        </p>
+      )}
+
       <div className="flex flex-row justify-around items-center">
         <label htmlFor="easy">
           <input
