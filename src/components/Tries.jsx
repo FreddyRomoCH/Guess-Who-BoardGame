@@ -5,7 +5,7 @@ export function Tries() {
   const { game, setGame } = useQuestions();
 
   let oneOpportunityClass;
-
+  // Change color or text based on the number of opportunities
   if (game.opportunities > 2) {
     oneOpportunityClass = "text-green-500";
   } else if (game.opportunities <= 1) {

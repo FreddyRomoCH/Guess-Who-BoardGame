@@ -4,6 +4,7 @@ import { GameContext } from "../context/gameContext.jsx"
 export function useQuestions() {
     const { game, setGame, restartGame } = useContext(GameContext)
 
+    //Filter the questions based on the current question
     useEffect(() => {
       if (game.currentQuestion !== null && game.opportunities > 1) {
         setGame(prevState => ({
@@ -17,29 +18,28 @@ export function useQuestions() {
         }))
       }
 
+      //If there is only one opportunity left or two cards left, remove all questions
       const isLastTwoLeft = game.board.filter((character) => character.found === false).length === 2;
 
-      if (game.opportunities === 1 || isLastTwoLeft) {
+      if (game.opportunities < 1 || isLastTwoLeft) {
         setGame(prevState => {
           return {
             ...prevState,
             allQuestions: [],
-            opportunities: 1,
+            opportunities: 0,
           }
         })
       }
 
-    }, [game.currentQuestion]);
-    
-    const handlerQuestionSelected = ({ id, keyWord, oppositeKeyWord }) => {
-
-      //Scroll to the top of the page when mobile
-      if (window.innerWidth < 768) {
+      //Scroll to the top of the page
         window.scrollTo({
           top: 0,
           behavior: "smooth"
         });
-      }
+
+    }, [game.currentQuestion]);
+    
+    const handlerQuestionSelected = ({ id, keyWord, oppositeKeyWord }) => {
 
       const isQuestionCorrect = game.board.some((target) => target.id === game.characterToFind && target[keyWord] === true)
 
@@ -61,7 +61,7 @@ export function useQuestions() {
           currentQuestionOppositeWord: oppositeKeyWord,
           isPlaying: true,
           opportunities: prevState.opportunities - 1,
-          isLoser: (prevState.opportunities - 1) === 0 ? true : false,
+          isLoser: (prevState.opportunities - 1) < 0 ? true : false,
           board: filteredBoard,
           isWinner: isOneLeft,
           isCurrentAnswerTrue: isQuestionCorrect

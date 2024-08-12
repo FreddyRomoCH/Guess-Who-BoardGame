@@ -7,7 +7,7 @@ export function Questions() {
   return (
     <section className="flex flex-col justify-center content-center w-full grow">
       <ul className="flex flex-col justify-center items-center gap-3">
-        {game.opportunities > 1 ? (
+        {game.opportunities > 0 ? (
           game.allQuestions.map((singleQuestion) => {
             const { id, question, keyWord, oppositeKeyWord } = singleQuestion;
 
