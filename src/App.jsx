@@ -25,7 +25,7 @@ function App() {
       <main className="relative flex flex-col md:flex-row justify-center items-center gap-6 m-auto p-4 max-w-7xl overflow-auto 1xl:overflow-hidden min-h-dvh">
         {game.isLoser && <Loser onClick={restartGame} />}
         {game.isWinner && <Winner onClick={restartGame} />}
-        <section className="flex flex-col flex-grow justify-center items-start gap-4 w-full md:w-auto">
+        <section className="flex flex-col flex-grow justify-center items-center gap-4 w-full md:w-auto">
           <Header />
           <Board />
         </section>
